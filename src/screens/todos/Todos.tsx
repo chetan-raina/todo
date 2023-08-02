@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import styles from "./TodosStyles.module.css";
 import { Priority, type Task } from "./TodosTypes";
-import TaskForm from "./TaskForm";
-import TodoList from "./TodoList";
+import TaskForm from "./taskForm/TaskForm";
+import TodoList from "./todoList/TodoList";
 import { getTasks, saveTasks } from "../../Utils";
 
 const initTask: Task = {
@@ -74,13 +75,16 @@ const Todos = () => {
     const removedTaskIndex = tasks.findIndex(
       (task) => task.id === removedTask.id
     );
-    const tempTasks = tasks.splice(removedTaskIndex, 1);
+    const tempTasks = [...tasks];
+    tempTasks.splice(removedTaskIndex, 1);
+
     setTasks(tempTasks);
     saveTasks(tempTasks);
   };
 
   return (
-    <div>
+    <div className={styles.container}>
+      <div className={styles.heading}>Todos</div>
       <TaskForm
         currentTask={currentTask}
         onTaskChange={handleTaskChange}

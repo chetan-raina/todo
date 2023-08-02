@@ -1,5 +1,5 @@
 import "./App.css";
-import Todos from "./screens/todoList/Todos";
+import Todos from "./screens/todos/Todos";
 
 function App() {
   return <Todos />;

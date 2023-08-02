@@ -1,0 +1,47 @@
+.taskContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.taskHeadingContainer {
+	font-weight: 700;
+}
+
+.taskCell {
+	width: 15%;
+	padding: 5px;
+}
+
+.descriptionTaskCell {
+	width: 35%;
+}
+
+.actionTaskCell {
+	width: 10%;
+	cursor: pointer;
+}
+
+.completionCheckbox {
+	margin-left: 15px;
+}
+
+.filterContainer {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+	margin: 5px 0px 25px 0px;
+}
+
+.filter {
+	min-width: 120px;
+	font-family: Outfit;
+	padding: 5px;
+}
+
+.noTasksText {
+	display: flex;
+	justify-content: center;
+}

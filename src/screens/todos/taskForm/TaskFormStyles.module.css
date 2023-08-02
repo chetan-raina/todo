@@ -1,0 +1,21 @@
+.formContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 20%;
+}
+
+.formItem {
+	margin: 8px 0px;
+}
+
+.formInput {
+	min-width: 250px;
+	font-family: Outfit;
+	padding: 5px;
+}
+
+.submitBtn {
+	font-family: Outfit;
+	cursor: pointer;
+	padding: 5px 10px;
+}

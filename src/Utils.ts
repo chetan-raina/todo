@@ -1,4 +1,4 @@
-import { Task } from "./screens/todoList/TodosTypes";
+import { Task } from "./screens/todos/TodosTypes";
 
 export const saveTasks = (tasks: Task[]) => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
