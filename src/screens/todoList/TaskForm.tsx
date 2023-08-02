@@ -1,14 +1,12 @@
-import { type Task } from "./TodosTypes";
+import { Priority, type Task } from "./TodosTypes";
 
 interface TaskFormProps {
-  currentTaskIndex: number;
   currentTask: Task;
   onTaskChange: (task: Task) => void;
   onTaskSave: () => void;
 }
 
 const TaskForm = ({
-  currentTaskIndex,
   currentTask,
   onTaskChange,
   onTaskSave,
@@ -16,14 +14,21 @@ const TaskForm = ({
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onTaskChange({
       ...currentTask,
-      title: e.target.value.trim(),
+      title: e.target.value,
     });
   };
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onTaskChange({
       ...currentTask,
-      description: e.target.value.trim(),
+      description: e.target.value,
+    });
+  };
+
+  const handlePriorityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    onTaskChange({
+      ...currentTask,
+      priority: Priority.valueOf(e.target.value),
     });
   };
 
@@ -36,8 +41,13 @@ const TaskForm = ({
         value={currentTask.description}
         onChange={handleDescriptionChange}
       />
+      <select value={currentTask.priority.name} onChange={handlePriorityChange}>
+        {Priority.values().map((priority) => (
+          <option value={priority.name}>{priority.label}</option>
+        ))}
+      </select>
       <button disabled={isSaveDisabled} onClick={() => onTaskSave()}>
-        {currentTaskIndex > -1 ? "Save Task" : "Add Task"}
+        {currentTask.id === "" ? "Add Task" : "Save Task"}
       </button>
     </div>
   );
