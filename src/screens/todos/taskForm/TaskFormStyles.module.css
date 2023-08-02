@@ -9,7 +9,7 @@
 }
 
 .formInput {
-	min-width: 250px;
+	width: 100%;
 	font-family: Outfit;
 	padding: 5px;
 }
